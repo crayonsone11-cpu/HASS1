@@ -1,16 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+export type ScrollRevealVariant =
+  | 'fade-up'
+  | 'fade-left'
+  | 'fade-right'
+  | 'media'
+  | 'fade'
+  | 'bloom'
+  | 'pop'
+  | 'step-up'
+  | 'curtain';
+
 interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
   delayMs?: number;
-  variant?: 'fade-up' | 'media' | 'fade';
+  durationMs?: number;
+  threshold?: number;
+  variant?: ScrollRevealVariant;
 }
 
 export function ScrollReveal({
   children,
   className = '',
   delayMs = 0,
+  durationMs,
+  threshold = 0.08,
   variant = 'fade-up',
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -32,31 +47,43 @@ export function ScrollReveal({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Emil Kowalski principle: trigger once, never fight reader on scroll
+          observer.disconnect(); // Trigger once, keep layout performant
         }
       },
       {
         rootMargin: '0px 0px -40px 0px',
-        threshold: 0.08,
+        threshold,
       }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [threshold]);
 
-  const variantClass =
-    variant === 'media'
-      ? 'reveal-media'
-      : variant === 'fade'
-      ? 'reveal-fade'
-      : 'reveal-fade-up';
+  const variantClassMap: Record<ScrollRevealVariant, string> = {
+    'fade-up': 'reveal-fade-up',
+    'fade-left': 'reveal-fade-left',
+    'fade-right': 'reveal-fade-right',
+    'media': 'reveal-media',
+    'fade': 'reveal-fade',
+    'bloom': 'reveal-bloom',
+    'pop': 'reveal-pop',
+    'step-up': 'reveal-step-up',
+    'curtain': 'reveal-curtain',
+  };
+
+  const variantClass = variantClassMap[variant] || 'reveal-fade-up';
+
+  const style: React.CSSProperties = {
+    ...(delayMs > 0 ? { transitionDelay: `${delayMs}ms` } : {}),
+    ...(durationMs ? { transitionDuration: `${durationMs}ms` } : {}),
+  };
 
   return (
     <div
       ref={ref}
       data-visible={isVisible ? 'true' : 'false'}
-      style={delayMs > 0 ? { transitionDelay: `${delayMs}ms` } : undefined}
+      style={Object.keys(style).length > 0 ? style : undefined}
       className={`${variantClass} ${className}`}
     >
       {children}
