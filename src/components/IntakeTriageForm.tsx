@@ -138,9 +138,9 @@ export function IntakeTriageForm({
     <section id="contact" className="scroll-mt-20 w-full border-b border-[#0B3866]/10">
       {/* 50/50 Full-Width Split Screen: Clinic Information on Left, Intake Triage on Right */}
       <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
-        {/* Left Column: Clinic Location, Catchment & Direct Contact Details */}
+        {/* Left Column: Clinic Location, Catchment & Direct Contact Details (Unique: Slide from Left) */}
         <div className="bg-[#F4EFEA] px-8 sm:px-14 lg:px-20 py-16 lg:py-24 flex flex-col justify-between">
-          <ScrollReveal delayMs={0}>
+          <ScrollReveal variant="fade-left" delayMs={0}>
             <p className="text-xs font-semibold text-[#11558E] mb-3 uppercase tracking-wider">
               Currently Accepting New Clients · No GP Referral Required
             </p>
@@ -196,7 +196,7 @@ export function IntakeTriageForm({
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delayMs={100} className="mt-12 pt-8 border-t border-[#0B3866]/15 max-w-md">
+          <ScrollReveal variant="fade-left" delayMs={90} className="mt-12 pt-8 border-t border-[#0B3866]/15 max-w-md">
             <p className="text-xs font-bold text-[#11558E] uppercase tracking-wider mb-2">
               Catchment & Visit Coverage:
             </p>
@@ -206,9 +206,9 @@ export function IntakeTriageForm({
           </ScrollReveal>
         </div>
 
-        {/* Right Column: Digital Intake Form (Full-width, Card-free) */}
+        {/* Right Column: Digital Intake Form (Unique: Slide from Right to converge) */}
         <div className="bg-[#FBF9F5] px-8 sm:px-14 lg:px-20 py-16 lg:py-24 border-t lg:border-t-0 lg:border-l border-[#0B3866]/10 flex flex-col justify-between">
-          <ScrollReveal delayMs={40}>
+          <ScrollReveal variant="fade-right" delayMs={40}>
             <div className="mb-8">
               <span className="text-xs font-bold text-[#11558E] uppercase tracking-wider">
                 Direct Clinic Intake
