@@ -11,6 +11,7 @@ import {
   ValidationErrors,
 } from '../utils/clinicLogic';
 import { CheckCircle2, MapPin, Phone, Mail, Sparkles, ArrowRight } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface IntakeTriageFormProps {
   preselectedServiceId?: string;
@@ -139,14 +140,14 @@ export function IntakeTriageForm({
       <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
         {/* Left Column: Clinic Location, Catchment & Direct Contact Details */}
         <div className="bg-[#F4EFEA] px-8 sm:px-14 lg:px-20 py-16 lg:py-24 flex flex-col justify-between">
-          <div>
+          <ScrollReveal delayMs={0}>
             <p className="text-xs font-semibold text-[#11558E] mb-3 uppercase tracking-wider">
               Currently Accepting New Clients · No GP Referral Required
             </p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-[54px] text-[#0B3866] font-normal leading-[1.08] mb-4">
               Arrange an Initial Consultation
             </h2>
-            <p className="text-sm sm:text-base text-[#0B3866]/85 leading-relaxed mb-8 max-w-lg">
+            <p className="text-sm sm:text-base text-[#0B3866]/85 leading-relaxed mb-8 max-w-[65ch]">
               Complete our clinical intake form or contact our Ballymount clinic directly.
               Every inquiry is reviewed by dual CORU & ASHA registered clinicians.
             </p>
@@ -154,7 +155,7 @@ export function IntakeTriageForm({
             <div className="space-y-6 border-t border-[#0B3866]/15 pt-8 max-w-md">
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-full bg-[#C4E0F9] flex items-center justify-center shrink-0 mt-0.5">
-                  <MapPin className="w-5 h-5 text-[#0B3866]" />
+                  <MapPin className="w-5 h-5 text-[#0B3866] shrink-0" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-[#11558E] uppercase tracking-wide">Ballymount Clinic Address</p>
@@ -165,7 +166,7 @@ export function IntakeTriageForm({
 
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-full bg-[#C4E0F9] flex items-center justify-center shrink-0 mt-0.5">
-                  <Phone className="w-5 h-5 text-[#0B3866]" />
+                  <Phone className="w-5 h-5 text-[#0B3866] shrink-0" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-[#11558E] uppercase tracking-wide">Direct Clinic Telephone</p>
@@ -180,7 +181,7 @@ export function IntakeTriageForm({
 
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-full bg-[#C4E0F9] flex items-center justify-center shrink-0 mt-0.5">
-                  <Mail className="w-5 h-5 text-[#0B3866]" />
+                  <Mail className="w-5 h-5 text-[#0B3866] shrink-0" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-[#11558E] uppercase tracking-wide">Clinical Director Email</p>
@@ -193,21 +194,21 @@ export function IntakeTriageForm({
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          <div className="mt-12 pt-8 border-t border-[#0B3866]/15 max-w-md">
+          <ScrollReveal delayMs={100} className="mt-12 pt-8 border-t border-[#0B3866]/15 max-w-md">
             <p className="text-xs font-bold text-[#11558E] uppercase tracking-wider mb-2">
               Catchment & Visit Coverage:
             </p>
             <p className="text-xs sm:text-sm text-[#0B3866]/85 leading-relaxed">
               {PRACTICE_INFO.catchmentAreas.join(' · ')}
             </p>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Right Column: Digital Intake Form (Full-width, Card-free) */}
         <div className="bg-[#FBF9F5] px-8 sm:px-14 lg:px-20 py-16 lg:py-24 border-t lg:border-t-0 lg:border-l border-[#0B3866]/10 flex flex-col justify-between">
-          <div>
+          <ScrollReveal delayMs={40}>
             <div className="mb-8">
               <span className="text-xs font-bold text-[#11558E] uppercase tracking-wider">
                 Direct Clinic Intake
@@ -215,14 +216,14 @@ export function IntakeTriageForm({
               <h3 className="font-display text-3xl sm:text-4xl text-[#0B3866] font-normal mt-1 mb-2">
                 Digital Intake & Triage Form
               </h3>
-              <p className="text-xs sm:text-sm text-[#0B3866]/80 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#0B3866]/80 leading-relaxed max-w-[65ch]">
                 Tell us about your child to help our clinical team recommend the ideal starting pathway.
               </p>
             </div>
 
             {latestSubmission && (
               <div
-                className="mb-8 bg-[#C4E0F9]/30 p-6 border-l-4 border-[#11558E]"
+                className="mb-8 bg-[#C4E0F9]/30 p-6 border-l-4 border-[#11558E] transition-all duration-200 ease-out"
                 role="status"
                 aria-live="polite"
               >
@@ -275,7 +276,7 @@ export function IntakeTriageForm({
                       value={formData.childName}
                       onChange={(e) => setFormData({ ...formData, childName: e.target.value })}
                       placeholder="e.g. Liam"
-                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] focus:outline-none focus:ring-2 focus:ring-[#11558E]"
+                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-[#11558E] focus:border-transparent"
                     />
                   </div>
 
@@ -290,7 +291,7 @@ export function IntakeTriageForm({
                       id="intake-age-group"
                       value={formData.childAgeGroup}
                       onChange={(e) => setFormData({ ...formData, childAgeGroup: e.target.value })}
-                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] focus:outline-none focus:ring-2 focus:ring-[#11558E]"
+                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-[#11558E] focus:border-transparent"
                     >
                       {AGE_GROUPS.map((age) => (
                         <option key={age} value={age}>
@@ -316,7 +317,7 @@ export function IntakeTriageForm({
                     id="intake-concern"
                     value={formData.primaryConcernId}
                     onChange={(e) => handleConcernChange(e.target.value)}
-                    className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] focus:outline-none focus:ring-2 focus:ring-[#11558E]"
+                    className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-[#11558E] focus:border-transparent"
                   >
                     {CLINICAL_INDICATIONS.map((ind) => (
                       <option key={ind.id} value={ind.id}>
@@ -351,7 +352,7 @@ export function IntakeTriageForm({
                       onChange={(e) =>
                         setFormData({ ...formData, preferredServiceId: e.target.value })
                       }
-                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] focus:outline-none focus:ring-2 focus:ring-[#11558E]"
+                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-[#11558E] focus:border-transparent"
                     >
                       {CLINICAL_SERVICES.map((service) => (
                         <option key={service.id} value={service.id}>
@@ -374,7 +375,7 @@ export function IntakeTriageForm({
                       onChange={(e) =>
                         setFormData({ ...formData, preferredModality: e.target.value })
                       }
-                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] focus:outline-none focus:ring-2 focus:ring-[#11558E]"
+                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-[#11558E] focus:border-transparent"
                     >
                       {DELIVERY_MODALITIES.map((mod) => (
                         <option key={mod} value={mod}>
@@ -410,7 +411,7 @@ export function IntakeTriageForm({
                         if (errors.parentName) setErrors({ ...errors, parentName: '' });
                       }}
                       placeholder="e.g. Niamh Walsh"
-                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] focus:outline-none focus:ring-2 focus:ring-[#11558E]"
+                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-[#11558E] focus:border-transparent"
                     />
                     {errors.parentName && (
                       <p className="text-xs text-red-700 mt-1">{errors.parentName}</p>
@@ -428,7 +429,7 @@ export function IntakeTriageForm({
                       id="intake-location"
                       value={formData.locationArea}
                       onChange={(e) => setFormData({ ...formData, locationArea: e.target.value })}
-                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] focus:outline-none focus:ring-2 focus:ring-[#11558E]"
+                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-[#11558E] focus:border-transparent"
                     >
                       {PRACTICE_INFO.catchmentAreas.map((area) => (
                         <option key={area} value={area}>
@@ -457,7 +458,7 @@ export function IntakeTriageForm({
                         if (errors.parentEmail) setErrors({ ...errors, parentEmail: '' });
                       }}
                       placeholder="parent@example.ie"
-                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] focus:outline-none focus:ring-2 focus:ring-[#11558E]"
+                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-[#11558E] focus:border-transparent"
                     />
                     {errors.parentEmail && (
                       <p className="text-xs text-red-700 mt-1">{errors.parentEmail}</p>
@@ -481,7 +482,7 @@ export function IntakeTriageForm({
                         if (errors.parentPhone) setErrors({ ...errors, parentPhone: '' });
                       }}
                       placeholder="085 153 1931"
-                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] focus:outline-none focus:ring-2 focus:ring-[#11558E]"
+                      className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-[#11558E] focus:border-transparent tabular-nums"
                     />
                     {errors.parentPhone && (
                       <p className="text-xs text-red-700 mt-1">{errors.parentPhone}</p>
@@ -502,7 +503,7 @@ export function IntakeTriageForm({
                     value={formData.additionalNotes}
                     onChange={(e) => setFormData({ ...formData, additionalNotes: e.target.value })}
                     placeholder="Share any context on previous reports, school supports, or preferred days..."
-                    className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] focus:outline-none focus:ring-2 focus:ring-[#11558E]"
+                    className="w-full bg-white border border-[#0B3866]/20 rounded-lg px-3.5 py-2.5 text-sm text-[#0B3866] transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-[#11558E] focus:border-transparent"
                   />
                 </div>
 
@@ -538,14 +539,14 @@ export function IntakeTriageForm({
                 </p>
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#11558E] hover:bg-[#0B3866] text-white text-sm font-medium transition-colors flex items-center justify-center gap-2 whitespace-nowrap shrink-0 cursor-pointer shadow-xs"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#11558E] hover:bg-[#0B3866] text-white text-sm font-medium btn-press flex items-center justify-center gap-2 whitespace-nowrap shrink-0 cursor-pointer shadow-xs"
                 >
                   <span>Submit Clinical Intake Inquiry</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </button>
               </div>
             </form>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
