@@ -243,13 +243,13 @@ export default function App() {
       </header>
 
       <main id="top" className="w-full">
-        {/* COMPARTMENT 1: Full-Width 50/50 Split Screen Hero */}
+        {/* COMPARTMENT 1: Full-Width 50/50 Split Screen Hero (Unique: Dual Glide & Lens Unveil) */}
         <section className="w-full border-b border-[#0B3866]/10 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch min-h-[640px] lg:min-h-[720px]">
             {/* Left 50% Panel: Editorial Narrative & Direct Consultation Action */}
             <div className="bg-[#F4EFEA] px-8 sm:px-14 lg:px-20 py-16 lg:py-24 flex flex-col justify-between">
               <div>
-                <ScrollReveal delayMs={0}>
+                <ScrollReveal variant="fade-left" delayMs={0}>
                   <p className="text-xs sm:text-sm font-semibold text-[#11558E] mb-4 uppercase tracking-wider">
                     Dublin, Kildare & Wicklow · CORU Registered · ASHA Certified
                   </p>
@@ -258,7 +258,7 @@ export default function App() {
                   </h1>
                 </ScrollReveal>
 
-                <ScrollReveal delayMs={60}>
+                <ScrollReveal variant="fade-left" delayMs={80}>
                   <p className="text-base sm:text-lg text-[#0B3866]/90 leading-relaxed max-w-[65ch] mb-8">
                     Child-centred, neurodiversity-affirming pediatric speech therapy across Dublin,
                     Kildare & Wicklow. Supporting speech clarity, early language, and AAC through play.
@@ -284,7 +284,7 @@ export default function App() {
               </div>
 
               {/* Bottom Quick Facts (Clean divider row, no cards) */}
-              <ScrollReveal delayMs={120}>
+              <ScrollReveal variant="fade-left" delayMs={140}>
                 <div className="pt-10 border-t border-[#0B3866]/15 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-[#0B3866]/80">
                   <span className="font-semibold text-[#0B3866]">Accepting new clients</span>
                   <span>·</span>
@@ -307,23 +307,25 @@ export default function App() {
               />
               {/* Bottom Caption Bar */}
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B3866]/90 via-[#0B3866]/50 to-transparent p-6 sm:p-10 text-white">
-                <p className="font-display text-xl sm:text-2xl font-normal mb-1">
-                  Play-Based Pediatric Speech Therapy
-                </p>
-                <p className="text-xs sm:text-sm text-white/85 max-w-[65ch]">
-                  Family-centred sessions at our Ballymount clinic (Dublin D12) & across Dublin,
-                  Kildare & Wicklow.
-                </p>
+                <ScrollReveal variant="fade" delayMs={160}>
+                  <p className="font-display text-xl sm:text-2xl font-normal mb-1">
+                    Play-Based Pediatric Speech Therapy
+                  </p>
+                  <p className="text-xs sm:text-sm text-white/85 max-w-[65ch]">
+                    Family-centred sessions at our Ballymount clinic (Dublin D12) & across Dublin,
+                    Kildare & Wicklow.
+                  </p>
+                </ScrollReveal>
               </div>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* COMPARTMENT 2: Full-Width 50/50 Split Screen Clinical Team & Why Choose Aspect */}
+        {/* COMPARTMENT 2: Full-Width 50/50 Split Screen Clinical Team & Why Choose Aspect (Unique: Split Horizon & Stepped Lift) */}
         <section id="about" className="scroll-mt-20 w-full border-b border-[#0B3866]/10 bg-[#FBF9F5]">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
             {/* Left 50% Column: Clinician Showcase (Properly Sized & Smoothly Crossfaded) */}
-            <div className="bg-[#F4EFEA] px-8 sm:px-14 lg:px-20 py-14 lg:py-20 flex flex-col justify-between">
+            <ScrollReveal variant="fade-left" className="bg-[#F4EFEA] px-8 sm:px-14 lg:px-20 py-14 lg:py-20 flex flex-col justify-between">
               <div>
                 {/* Top Clinician Switcher Tabs & Category Label */}
                 <div className="flex items-center justify-between gap-4 mb-8 pb-4 border-b border-[#0B3866]/15">
@@ -399,12 +401,12 @@ export default function App() {
                   {activeClinician.communityNote}
                 </p>
               )}
-            </div>
+            </ScrollReveal>
 
             {/* Right 50% Column: Editorial Narrative & "Why Choose Aspect" */}
             <div className="bg-[#FBF9F5] px-8 sm:px-14 lg:px-20 py-16 lg:py-24 border-t lg:border-t-0 lg:border-l border-[#0B3866]/10 flex flex-col justify-between">
               <div>
-                <ScrollReveal delayMs={0}>
+                <ScrollReveal variant="fade-up" delayMs={0}>
                   <p className="text-xs sm:text-sm font-semibold text-[#11558E] uppercase tracking-wider mb-2">
                     Clinical Direction & Leadership
                   </p>
@@ -449,15 +451,17 @@ export default function App() {
                   </div>
                 </ScrollReveal>
 
-                {/* "Why Choose Aspect Speech Therapy" (Staggered Grid Reveal) */}
+                {/* "Why Choose Aspect Speech Therapy" (Staggered Stepped Grid Reveal) */}
                 <div className="border-t border-[#0B3866]/15 pt-8">
-                  <p className="text-xs font-bold text-[#11558E] mb-6 uppercase tracking-wider">
-                    Why Choose Aspect Speech Therapy
-                  </p>
+                  <ScrollReveal variant="fade-up" delayMs={60}>
+                    <p className="text-xs font-bold text-[#11558E] mb-6 uppercase tracking-wider">
+                      Why Choose Aspect Speech Therapy
+                    </p>
+                  </ScrollReveal>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7">
                     {CORE_PILLARS.map((pillar, idx) => (
-                      <ScrollReveal key={pillar.id} delayMs={idx * 50} className="border-t border-[#0B3866]/15 pt-3">
+                      <ScrollReveal key={pillar.id} variant="step-up" delayMs={idx * 70} className="border-t border-[#0B3866]/15 pt-3">
                         <div className="flex items-baseline gap-2 mb-1.5">
                           <span className="font-display text-2xl sm:text-3xl font-light text-[#11558E] tabular-nums">
                             {pillar.number}
@@ -478,7 +482,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* COMPARTMENT 3: Full-Width 50/50 Dual Feature Showcase */}
+        {/* COMPARTMENT 3: Full-Width 50/50 Dual Feature Showcase (Unique: Media Aperture & Icon Spring Pop) */}
         <section className="w-full border-b border-[#0B3866]/10">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
             {/* Left 50%: Full-Bleed High-Res Photo Card */}
@@ -490,19 +494,21 @@ export default function App() {
                 className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B3866]/90 via-[#0B3866]/50 to-transparent p-6 sm:p-10 text-white">
-                <p className="font-display text-2xl sm:text-3xl font-normal mb-1">
-                  Everyday Routine Carryover
-                </p>
-                <p className="text-xs sm:text-sm text-white/85 max-w-[65ch]">
-                  Practical parent coaching designed for mealtimes, play, and classroom routines.
-                </p>
+                <ScrollReveal variant="fade" delayMs={140}>
+                  <p className="font-display text-2xl sm:text-3xl font-normal mb-1">
+                    Everyday Routine Carryover
+                  </p>
+                  <p className="text-xs sm:text-sm text-white/85 max-w-[65ch]">
+                    Practical parent coaching designed for mealtimes, play, and classroom routines.
+                  </p>
+                </ScrollReveal>
               </div>
             </ScrollReveal>
 
             {/* Right 50%: Flexible Delivery Formats (Staggered Entrance on Scroll) */}
             <div className="bg-[#F4EFEA] px-8 sm:px-14 lg:px-20 py-16 lg:py-24 border-t lg:border-t-0 lg:border-l border-[#0B3866]/10 flex flex-col justify-between">
               <div>
-                <ScrollReveal delayMs={0}>
+                <ScrollReveal variant="fade-right" delayMs={0}>
                   <p className="text-xs font-semibold text-[#11558E] mb-2 uppercase tracking-wider">
                     Care Across Every Environment
                   </p>
@@ -515,12 +521,12 @@ export default function App() {
                   </p>
                 </ScrollReveal>
 
-                {/* 3 Staggered Full-Width Feature Items */}
+                {/* 3 Staggered Full-Width Feature Items with Spring Pop Icons */}
                 <div className="border-t border-[#0B3866]/15 divide-y divide-[#0B3866]/15">
-                  <ScrollReveal delayMs={60} className="py-4 sm:py-5 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[#C4E0F9] flex items-center justify-center shrink-0 mt-0.5">
+                  <ScrollReveal variant="fade-right" delayMs={70} className="py-4 sm:py-5 flex items-start gap-4">
+                    <ScrollReveal variant="pop" delayMs={120} className="w-10 h-10 rounded-full bg-[#C4E0F9] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                       <Home className="w-5 h-5 text-[#0B3866] shrink-0" />
-                    </div>
+                    </ScrollReveal>
                     <div>
                       <h4 className="font-display text-xl text-[#0B3866] font-normal mb-1">
                         Ballymount Clinic (Dublin D12)
@@ -532,10 +538,10 @@ export default function App() {
                     </div>
                   </ScrollReveal>
 
-                  <ScrollReveal delayMs={120} className="py-4 sm:py-5 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[#C4E0F9] flex items-center justify-center shrink-0 mt-0.5">
+                  <ScrollReveal variant="fade-right" delayMs={140} className="py-4 sm:py-5 flex items-start gap-4">
+                    <ScrollReveal variant="pop" delayMs={190} className="w-10 h-10 rounded-full bg-[#C4E0F9] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                       <School className="w-5 h-5 text-[#0B3866] shrink-0" />
-                    </div>
+                    </ScrollReveal>
                     <div>
                       <h4 className="font-display text-xl text-[#0B3866] font-normal mb-1">
                         Preschool & School Visits
@@ -547,10 +553,10 @@ export default function App() {
                     </div>
                   </ScrollReveal>
 
-                  <ScrollReveal delayMs={180} className="py-4 sm:py-5 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[#C4E0F9] flex items-center justify-center shrink-0 mt-0.5">
+                  <ScrollReveal variant="fade-right" delayMs={210} className="py-4 sm:py-5 flex items-start gap-4">
+                    <ScrollReveal variant="pop" delayMs={260} className="w-10 h-10 rounded-full bg-[#C4E0F9] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                       <Video className="w-5 h-5 text-[#0B3866] shrink-0" />
-                    </div>
+                    </ScrollReveal>
                     <div>
                       <h4 className="font-display text-xl text-[#0B3866] font-normal mb-1">
                         Online Teletherapy & Coaching
@@ -564,24 +570,24 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="pt-8 mt-6">
+              <ScrollReveal variant="fade-up" delayMs={260} className="pt-8 mt-6">
                 <button
                   type="button"
                   onClick={() => scrollToSection('contact')}
-                  className="min-h-[44px] px-8 py-3 rounded-full bg-[#11558E] hover:bg-[#0B3866] text-white text-xs sm:text-sm font-medium btn-press cursor-pointer"
+                  className="min-h-[44px] px-8 py-3 rounded-full bg-[#11558E] hover:bg-[#0B3866] text-white text-xs sm:text-sm font-medium btn-press cursor-pointer shadow-xs"
                 >
                   Inquire About Session Availability
                 </button>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
 
-        {/* COMPARTMENT 4: Full-Width Clinical Focus Areas */}
+        {/* COMPARTMENT 4: Full-Width Clinical Focus Areas (Unique: Horizontal Ribbon Sweep & Focus Bloom) */}
         <section id="indications" className="scroll-mt-20 w-full bg-[#C4E0F9]/40 py-16 sm:py-20 px-6 sm:px-12 lg:px-20 border-b border-[#0B3866]/10">
           <div className="w-full">
             {/* Header */}
-            <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 pb-6 border-b border-[#0B3866]/15">
+            <ScrollReveal variant="fade-up" className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 pb-6 border-b border-[#0B3866]/15">
               <div className="lg:col-span-7">
                 <p className="text-xs sm:text-sm font-semibold text-[#11558E] uppercase tracking-wider mb-2">
                   Clinical Focus Areas
@@ -598,93 +604,97 @@ export default function App() {
               </div>
             </ScrollReveal>
 
-            {/* Horizontal Pathway Selector Tabs */}
-            <div
-              className="flex items-center gap-3 mb-10 overflow-x-auto pb-3 focus:outline-none"
-              role="tablist"
-              aria-label="Clinical focus areas"
-            >
-              {CLINICAL_INDICATIONS.map((indication) => {
-                const isSelected = selectedIndication.id === indication.id;
-                return (
-                  <button
-                    key={indication.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={isSelected}
-                    onClick={() => setSelectedIndication(indication)}
-                    className={`min-h-[46px] px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tab-press whitespace-nowrap shrink-0 cursor-pointer border ${
-                      isSelected
-                        ? 'bg-[#0B3866] text-white border-transparent shadow-xs'
-                        : 'bg-[#FBF9F5] text-[#0B3866] border-[#0B3866]/15 hover:bg-white'
-                    }`}
-                  >
-                    <span>{indication.fullTitle.split('&')[0].trim()}</span>
-                  </button>
-                );
-              })}
-            </div>
+            {/* Horizontal Pathway Selector Tabs Ribbon */}
+            <ScrollReveal variant="fade-right" delayMs={50}>
+              <div
+                className="flex items-center gap-3 mb-10 overflow-x-auto pb-3 focus:outline-none"
+                role="tablist"
+                aria-label="Clinical focus areas"
+              >
+                {CLINICAL_INDICATIONS.map((indication) => {
+                  const isSelected = selectedIndication.id === indication.id;
+                  return (
+                    <button
+                      key={indication.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={isSelected}
+                      onClick={() => setSelectedIndication(indication)}
+                      className={`min-h-[46px] px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tab-press whitespace-nowrap shrink-0 cursor-pointer border ${
+                        isSelected
+                          ? 'bg-[#0B3866] text-white border-transparent shadow-xs'
+                          : 'bg-[#FBF9F5] text-[#0B3866] border-[#0B3866]/15 hover:bg-white'
+                      }`}
+                    >
+                      <span>{indication.fullTitle.split('&')[0].trim()}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </ScrollReveal>
 
-            {/* Expansive Detail with Fluid Crossfade Transition on Tab Switch */}
-            <div key={selectedIndication.id} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start pt-4 fade-in-swap">
-              <div className="lg:col-span-7 space-y-4">
-                <p className="text-xs font-bold text-[#11558E] uppercase tracking-wider">
-                  Developmental Area · <span className="tabular-nums">{selectedIndication.ageFocus}</span>
-                </p>
-                <h3 className="font-display text-3xl sm:text-4xl text-[#0B3866] font-normal">
-                  {selectedIndication.fullTitle}
-                </h3>
-                <p className="text-sm sm:text-base text-[#0B3866]/85 leading-relaxed max-w-[65ch]">
-                  {selectedIndication.summary}
-                </p>
-
-                <div className="pt-4 space-y-2.5 border-t border-[#0B3866]/15">
-                  <p className="text-xs font-bold text-[#0B3866] uppercase tracking-wide">
-                    Common signs families notice:
+            {/* Expansive Detail with Focus Bloom on Scroll & Fluid Crossfade on Tab Switch */}
+            <ScrollReveal variant="bloom" delayMs={90}>
+              <div key={selectedIndication.id} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start pt-4 fade-in-swap">
+                <div className="lg:col-span-7 space-y-4">
+                  <p className="text-xs font-bold text-[#11558E] uppercase tracking-wider">
+                    Developmental Area · <span className="tabular-nums">{selectedIndication.ageFocus}</span>
                   </p>
-                  {selectedIndication.signsToWatch.map((sign, i) => (
-                    <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#0B3866]/85">
-                      <Check className="w-4 h-4 text-[#11558E] shrink-0 mt-0.5" />
-                      <span>{sign}</span>
-                    </div>
-                  ))}
+                  <h3 className="font-display text-3xl sm:text-4xl text-[#0B3866] font-normal">
+                    {selectedIndication.fullTitle}
+                  </h3>
+                  <p className="text-sm sm:text-base text-[#0B3866]/85 leading-relaxed max-w-[65ch]">
+                    {selectedIndication.summary}
+                  </p>
+
+                  <div className="pt-4 space-y-2.5 border-t border-[#0B3866]/15">
+                    <p className="text-xs font-bold text-[#0B3866] uppercase tracking-wide">
+                      Common signs families notice:
+                    </p>
+                    {selectedIndication.signsToWatch.map((sign, i) => (
+                      <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#0B3866]/85">
+                        <Check className="w-4 h-4 text-[#11558E] shrink-0 mt-0.5" />
+                        <span>{sign}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 lg:border-l lg:border-[#0B3866]/15 lg:pl-10 space-y-4">
+                  <p className="text-xs font-bold text-[#11558E] uppercase tracking-wider">
+                    Recommended Next Step
+                  </p>
+                  <h4 className="font-display text-2xl sm:text-3xl text-[#0B3866] font-normal leading-snug">
+                    Individualized Play-Based Intake or Evaluation
+                  </h4>
+                  <p className="text-xs sm:text-sm text-[#0B3866]/80 leading-relaxed max-w-[65ch]">
+                    We tailor every session around your child&apos;s natural interests, sensory
+                    comfort, and everyday family routines.
+                  </p>
+
+                  <div className="pt-4">
+                    <button
+                      type="button"
+                      onClick={() => handleSelectIndicationForBooking(selectedIndication)}
+                      className="min-h-[46px] px-8 py-3 rounded-full bg-[#11558E] hover:bg-[#0B3866] text-white text-xs sm:text-sm font-medium btn-press flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                    >
+                      <span>Inquire About {selectedIndication.fullTitle.split('&')[0].trim()}</span>
+                      <ArrowRight className="w-4 h-4 shrink-0" />
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              <div className="lg:col-span-5 lg:border-l lg:border-[#0B3866]/15 lg:pl-10 space-y-4">
-                <p className="text-xs font-bold text-[#11558E] uppercase tracking-wider">
-                  Recommended Next Step
-                </p>
-                <h4 className="font-display text-2xl sm:text-3xl text-[#0B3866] font-normal leading-snug">
-                  Individualized Play-Based Intake or Evaluation
-                </h4>
-                <p className="text-xs sm:text-sm text-[#0B3866]/80 leading-relaxed max-w-[65ch]">
-                  We tailor every session around your child&apos;s natural interests, sensory
-                  comfort, and everyday family routines.
-                </p>
-
-                <div className="pt-4">
-                  <button
-                    type="button"
-                    onClick={() => handleSelectIndicationForBooking(selectedIndication)}
-                    className="min-h-[46px] px-8 py-3 rounded-full bg-[#11558E] hover:bg-[#0B3866] text-white text-xs sm:text-sm font-medium btn-press flex items-center justify-center gap-2 cursor-pointer shadow-xs"
-                  >
-                    <span>Inquire About {selectedIndication.fullTitle.split('&')[0].trim()}</span>
-                    <ArrowRight className="w-4 h-4 shrink-0" />
-                  </button>
-                </div>
-              </div>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
-        {/* COMPARTMENT 5: Full-Width Services & Diagnostic Assessments */}
+        {/* COMPARTMENT 5: Full-Width Services & Diagnostic Assessments (Unique: Directory Slide & Pathway Bloom) */}
         <AssessmentsSection onSelectServiceForBooking={handleSelectServiceForBooking} />
 
-        {/* COMPARTMENT 6: Full-Width Testimonials (Staggered 3-Column Editorial Grid) */}
+        {/* COMPARTMENT 6: Full-Width Testimonials (Unique: Cascading Editorial Broadside) */}
         <section className="w-full py-16 sm:py-20 px-6 sm:px-12 lg:px-20 bg-[#F4EFEA] border-b border-[#0B3866]/10">
           <div className="w-full">
-            <ScrollReveal className="mb-10 pb-6 border-b border-[#0B3866]/15">
+            <ScrollReveal variant="fade-up" className="mb-10 pb-6 border-b border-[#0B3866]/15">
               <p className="text-xs font-semibold text-[#11558E] uppercase tracking-wider mb-2">
                 Parent Feedback & Experiences
               </p>
@@ -693,12 +703,13 @@ export default function App() {
               </h2>
             </ScrollReveal>
 
-            {/* 3-Column Editorial Grid with Staggered Scroll Reveal */}
+            {/* 3-Column Editorial Grid with Staggered Step Lift */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 divide-y md:divide-y-0 md:divide-x divide-[#0B3866]/15">
               {PARENT_TESTIMONIALS.map((item, idx) => (
                 <ScrollReveal
                   key={item.id}
-                  delayMs={idx * 80}
+                  variant="step-up"
+                  delayMs={idx * 90}
                   className={idx > 0 ? 'pt-6 md:pt-0 md:pl-8 lg:pl-12' : ''}
                 >
                   <p className="text-sm sm:text-base text-[#0B3866] leading-relaxed mb-6 font-normal max-w-[65ch]">
@@ -717,21 +728,21 @@ export default function App() {
           </div>
         </section>
 
-        {/* COMPARTMENT 7: Full-Width 50/50 Split Screen Digital Intake & Booking */}
+        {/* COMPARTMENT 7: Full-Width 50/50 Split Screen Digital Intake & Booking (Unique: Magnetic Convergence) */}
         <IntakeTriageForm
           preselectedServiceId={bookingServiceId}
           preselectedConcernId={bookingConcernId}
         />
 
-        {/* COMPARTMENT 8: Full-Width Frequently Asked Questions */}
+        {/* COMPARTMENT 8: Full-Width Frequently Asked Questions (Unique: Venetian Curtain Unroll) */}
         <FaqSection />
       </main>
 
-      {/* COMPARTMENT 9: Full-Width Footer */}
+      {/* COMPARTMENT 9: Full-Width Footer (Unique: Horizon Rise & Form Bloom) */}
       <footer className="w-full bg-[#C4E0F9] py-16 px-6 sm:px-12 lg:px-20">
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Brand, Practice Info & Governance */}
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-8">
+          <ScrollReveal variant="fade-up" className="lg:col-span-7 flex flex-col justify-between space-y-8">
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <AspectLogoMark className="w-10 h-10 shrink-0" />
@@ -780,10 +791,10 @@ export default function App() {
                 © {new Date().getFullYear()} by Aspect Speech Therapy Dublin. All rights reserved.
               </p>
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Right Column: Clean Newsletter Signup */}
-          <div className="lg:col-span-5 lg:border-l lg:border-[#0B3866]/15 lg:pl-10">
+          {/* Right Column: Clean Newsletter Signup with Bloom Entrance */}
+          <ScrollReveal variant="bloom" delayMs={90} className="lg:col-span-5 lg:border-l lg:border-[#0B3866]/15 lg:pl-10">
             <h3 className="font-display text-2xl text-[#0B3866] font-normal mb-2">
               Subscribe to parent speech & communication tips
             </h3>
@@ -847,7 +858,7 @@ export default function App() {
                 </button>
               </form>
             )}
-          </div>
+          </ScrollReveal>
         </div>
       </footer>
     </div>
