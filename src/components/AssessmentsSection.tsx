@@ -43,7 +43,7 @@ export function AssessmentsSection({
       className="scroll-mt-20 w-full py-14 sm:py-18 lg:py-20 px-6 sm:px-10 lg:px-16 border-b border-[#0B3866]/10 bg-[#FBF9F5]"
     >
       {/* Full-Width Section Header with Scroll Reveal */}
-      <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12 items-end pb-8 sm:pb-10 border-b border-[#0B3866]/10 mb-8 sm:mb-10">
+      <ScrollReveal variant="fade-up" className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12 items-end pb-8 sm:pb-10 border-b border-[#0B3866]/10 mb-8 sm:mb-10">
         <div className="lg:col-span-7">
           <p className="text-xs sm:text-sm font-semibold text-[#11558E] uppercase tracking-wider mb-2">
             Clinical Services & Evaluations
@@ -62,8 +62,8 @@ export function AssessmentsSection({
 
       {/* FULL WIDTH SPLIT VIEW: Clean Directory on Left, Expansive Detail on Right */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        {/* LEFT COLUMN: Clinical Directory List */}
-        <div className="lg:col-span-5 flex flex-col">
+        {/* LEFT COLUMN: Clinical Directory List with Slide Reveal */}
+        <ScrollReveal variant="fade-left" className="lg:col-span-5 flex flex-col">
           <div className="flex items-center justify-between pb-3 mb-2 border-b border-[#0B3866]/15">
             <span className="text-xs font-bold text-[#11558E] uppercase tracking-wider">
               Select Clinical Pathway
@@ -148,10 +148,10 @@ export function AssessmentsSection({
               );
             })}
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* RIGHT COLUMN: Full Clinical Information (Smooth Crossfade on Pathway Selection) */}
-        <div className="lg:col-span-7 lg:border-l lg:border-[#0B3866]/15 lg:pl-10 flex flex-col justify-between min-h-[580px]">
+        <ScrollReveal variant="bloom" delayMs={60} className="lg:col-span-7 lg:border-l lg:border-[#0B3866]/15 lg:pl-10 flex flex-col justify-between min-h-[580px]">
           <div key={activeService.id} className="fade-in-swap">
             {/* Top Stepper Bar */}
             <div className="flex items-center justify-between gap-3 pb-3 mb-5 border-b border-[#0B3866]/15">
@@ -267,7 +267,7 @@ export function AssessmentsSection({
               <ArrowRight className="w-4 h-4 shrink-0" />
             </button>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
