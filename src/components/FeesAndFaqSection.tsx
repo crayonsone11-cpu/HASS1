@@ -16,7 +16,7 @@ export function FaqSection() {
       className="scroll-mt-20 w-full py-16 sm:py-20 px-6 sm:px-12 lg:px-20 border-b border-[#0B3866]/10 bg-[#FBF9F5]"
     >
       <div className="max-w-4xl mx-auto">
-        <ScrollReveal className="text-center mb-10 sm:mb-14">
+        <ScrollReveal variant="fade-up" className="text-center mb-10 sm:mb-14">
           <p className="text-xs sm:text-sm font-semibold text-[#11558E] uppercase tracking-wider mb-2 flex items-center justify-center gap-1.5">
             <HelpCircle className="w-4 h-4 text-[#11558E] shrink-0" />
             <span>Helpful Information</span>
@@ -30,12 +30,12 @@ export function FaqSection() {
           </p>
         </ScrollReveal>
 
-        {/* Full-Width Unboxed FAQ Accordion (Clean Hairline Borders, Zero Cards) */}
+        {/* Full-Width Unboxed FAQ Accordion (Unique: Venetian Curtain Unroll) */}
         <div className="border-t border-[#0B3866]/15 divide-y divide-[#0B3866]/15">
           {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openFaqId === item.id;
             return (
-              <ScrollReveal key={item.id} delayMs={idx * 40}>
+              <ScrollReveal key={item.id} variant="curtain" delayMs={idx * 45}>
                 <button
                   type="button"
                   aria-expanded={isOpen}
