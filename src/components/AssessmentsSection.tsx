@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CLINICAL_SERVICES, ClinicalService } from '../data/clinicData';
+import { ScrollReveal } from './ScrollReveal';
 import {
   Check,
   ArrowRight,
@@ -41,8 +42,8 @@ export function AssessmentsSection({
       id="assessments"
       className="scroll-mt-20 w-full py-14 sm:py-18 lg:py-20 px-6 sm:px-10 lg:px-16 border-b border-[#0B3866]/10 bg-[#FBF9F5]"
     >
-      {/* Full-Width Section Header */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12 items-end pb-8 sm:pb-10 border-b border-[#0B3866]/10 mb-8 sm:mb-10">
+      {/* Full-Width Section Header with Scroll Reveal */}
+      <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12 items-end pb-8 sm:pb-10 border-b border-[#0B3866]/10 mb-8 sm:mb-10">
         <div className="lg:col-span-7">
           <p className="text-xs sm:text-sm font-semibold text-[#11558E] uppercase tracking-wider mb-2">
             Clinical Services & Evaluations
@@ -51,17 +52,17 @@ export function AssessmentsSection({
             Therapy Sessions & Diagnostic Assessments
           </h2>
         </div>
-        <div className="lg:col-span-5 text-[#0B3866]/85 text-sm sm:text-[15px] leading-relaxed">
+        <div className="lg:col-span-5 text-[#0B3866]/85 text-sm sm:text-[15px] leading-relaxed max-w-[65ch]">
           <p>
             From relaxed play-based consultations and ongoing therapy (from €115) to formal
             standardized diagnostic reports for schools, each pathway is tailored to your child.
           </p>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* FULL WIDTH SPLIT VIEW: Clean Directory on Left, Expansive Detail on Right */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        {/* LEFT COLUMN: Clinical Directory List (No floating cards) */}
+        {/* LEFT COLUMN: Clinical Directory List */}
         <div className="lg:col-span-5 flex flex-col">
           <div className="flex items-center justify-between pb-3 mb-2 border-b border-[#0B3866]/15">
             <span className="text-xs font-bold text-[#11558E] uppercase tracking-wider">
@@ -87,7 +88,7 @@ export function AssessmentsSection({
                   role="tab"
                   aria-selected={isSelected}
                   onClick={() => setSelectedServiceId(service.id)}
-                  className={`w-full text-left py-4 px-3 sm:px-4 transition-colors cursor-pointer flex items-center justify-between gap-4 ${
+                  className={`w-full text-left py-4 px-3 sm:px-4 tab-press cursor-pointer flex items-center justify-between gap-4 ${
                     isSelected
                       ? 'bg-[#0B3866] text-white rounded-xl shadow-xs'
                       : 'hover:bg-[#C4E0F9]/30 text-[#0B3866]'
@@ -134,13 +135,13 @@ export function AssessmentsSection({
 
                   <div className="shrink-0">
                     <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform ${
+                      className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-160 ${
                         isSelected
                           ? 'bg-white/20 text-white translate-x-0.5'
                           : 'bg-[#0B3866]/5 text-[#0B3866]'
                       }`}
                     >
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4 shrink-0" />
                     </div>
                   </div>
                 </button>
@@ -149,9 +150,9 @@ export function AssessmentsSection({
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Full Clinical Information (Card-free open layout) */}
+        {/* RIGHT COLUMN: Full Clinical Information (Smooth Crossfade on Pathway Selection) */}
         <div className="lg:col-span-7 lg:border-l lg:border-[#0B3866]/15 lg:pl-10 flex flex-col justify-between min-h-[580px]">
-          <div>
+          <div key={activeService.id} className="fade-in-swap">
             {/* Top Stepper Bar */}
             <div className="flex items-center justify-between gap-3 pb-3 mb-5 border-b border-[#0B3866]/15">
               <span className="text-xs font-semibold uppercase tracking-wider text-[#11558E]">
@@ -165,9 +166,9 @@ export function AssessmentsSection({
                   type="button"
                   onClick={handlePrevService}
                   aria-label="Previous service"
-                  className="p-1.5 rounded-full hover:bg-[#C4E0F9]/50 text-[#0B3866] transition-colors cursor-pointer border border-[#0B3866]/15"
+                  className="p-1.5 rounded-full hover:bg-[#C4E0F9]/50 text-[#0B3866] btn-press cursor-pointer border border-[#0B3866]/15"
                 >
-                  <ChevronLeft className="w-4 h-4" />
+                  <ChevronLeft className="w-4 h-4 shrink-0" />
                 </button>
                 <span className="text-xs font-semibold px-1 tabular-nums">
                   {currentIndex + 1} / {CLINICAL_SERVICES.length}
@@ -176,9 +177,9 @@ export function AssessmentsSection({
                   type="button"
                   onClick={handleNextService}
                   aria-label="Next service"
-                  className="p-1.5 rounded-full hover:bg-[#C4E0F9]/50 text-[#0B3866] transition-colors cursor-pointer border border-[#0B3866]/15"
+                  className="p-1.5 rounded-full hover:bg-[#C4E0F9]/50 text-[#0B3866] btn-press cursor-pointer border border-[#0B3866]/15"
                 >
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-4 h-4 shrink-0" />
                 </button>
               </div>
             </div>
@@ -190,33 +191,33 @@ export function AssessmentsSection({
 
             <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-[#0B3866]/85 mb-5 pb-4 border-b border-[#0B3866]/10">
               <span className="inline-flex items-center gap-1.5 font-medium text-[#11558E]">
-                <Clock className="w-4 h-4" />
+                <Clock className="w-4 h-4 shrink-0" />
                 <span>{activeService.duration}</span>
               </span>
               <span>·</span>
               <span className="inline-flex items-center gap-1.5">
-                <MapPin className="w-4 h-4 text-[#11558E]" />
+                <MapPin className="w-4 h-4 text-[#11558E] shrink-0" />
                 <span>{activeService.deliveryModalities.join(' · ')}</span>
               </span>
             </div>
 
             {/* Concise Clinical Summary */}
-            <p className="text-sm sm:text-base text-[#0B3866]/90 leading-relaxed mb-6">
+            <p className="text-sm sm:text-base text-[#0B3866]/90 leading-relaxed mb-6 max-w-[65ch]">
               {activeService.clinicalDescription || activeService.shortSummary}
             </p>
 
-            {/* Open Editorial Breakdown: Ideal For & Deliverables (Divided, Not Boxed Cards) */}
+            {/* Open Editorial Breakdown: Ideal For & Deliverables */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-6 border-y border-[#0B3866]/10 mb-6">
               {/* Ideal For */}
               <div>
                 <p className="text-xs font-bold text-[#11558E] uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4" />
+                  <Sparkles className="w-4 h-4 shrink-0" />
                   <span>Ideal for your child if:</span>
                 </p>
                 <ul className="space-y-2 text-xs sm:text-sm text-[#0B3866]/85">
                   {activeService.idealFor.slice(0, 4).map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-[#11558E] font-bold leading-none mt-1">•</span>
+                      <span className="text-[#11558E] font-bold leading-none mt-1 shrink-0">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -226,7 +227,7 @@ export function AssessmentsSection({
               {/* What Is Included */}
               <div>
                 <p className="text-xs font-bold text-[#11558E] uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                  <FileText className="w-4 h-4" />
+                  <FileText className="w-4 h-4 shrink-0" />
                   <span>What is included:</span>
                 </p>
                 <ul className="space-y-2 text-xs sm:text-sm text-[#0B3866]/85">
@@ -260,10 +261,10 @@ export function AssessmentsSection({
             <button
               type="button"
               onClick={() => onSelectServiceForBooking(activeService)}
-              className="min-h-[48px] px-8 py-3 rounded-full bg-[#11558E] hover:bg-[#0B3866] text-white text-sm font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+              className="min-h-[48px] px-8 py-3 rounded-full bg-[#11558E] hover:bg-[#0B3866] text-white text-sm font-medium btn-press flex items-center justify-center gap-2 cursor-pointer shadow-xs"
             >
               <span>Book / Inquire About This Pathway</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </button>
           </div>
         </div>
